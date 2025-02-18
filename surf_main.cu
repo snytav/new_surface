@@ -1,10 +1,9 @@
-i///// https://forums.developer.nvidia.com/t/can-i-use-operator-new-in-device-code/37594ii
 
 #include "surf2Dread.h"
 
-SurfaceEmulater d_surf;
+SurfaceEmulator *d_surf;
 
-__global__ void kernel(SurfaceEmulator **d_s,in n,int m){
+__global__ void kernel(SurfaceEmulator **d_s,int n,int m){
 	*d_s = new SurfaceEmulator(m,n);
 
 }
@@ -12,6 +11,6 @@ __global__ void kernel(SurfaceEmulator **d_s,in n,int m){
 
 int main(){
 
-  kernel<<<1,1>>>();
+  kernel<<<1,1>>>(&d_surf,3,5);
   cudaDeviceSynchronize();
 }
