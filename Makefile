@@ -1,2 +1,4 @@
-surf: surf_main.cu 
-	nvcc -o surf surf_main.cu 
+surf: main.cu 
+	nvcc -o surf main.cu
+clean:
+	rm surf	

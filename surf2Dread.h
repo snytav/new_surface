@@ -10,11 +10,11 @@ public:
     }
     double *matrix;
 
-    __device__ double surf2Dread( int i, int j)
+    __device__ double read( int i, int j)
     {
         return matrix[i*M+j];
     }
-    __device__ double surf2Dwrite( int i, int j,double d)
+    __device__ double write( int i, int j,double d)
     {
         matrix[i*M+j] = d;
     }
